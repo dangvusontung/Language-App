@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -51,7 +52,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -63,12 +63,15 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.convertorGson)
     implementation(libs.okhttp)
-    implementation(libs.hilt)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
     implementation(libs.loggingInterceptor)
     implementation(libs.timber)
     implementation(libs.coroutines)
     implementation(libs.lifecycleViewModelKtx)
     implementation(libs.lifecycleRuntime)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
