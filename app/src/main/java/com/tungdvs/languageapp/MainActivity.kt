@@ -20,8 +20,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.tungdvs.languageapp.chat.presentation.views.ChatScreen
 import com.tungdvs.languageapp.ui.theme.LanguageAppTheme
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -48,7 +50,7 @@ fun LanguageApp() {
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Dashboard.route) { Text("Dashboard Screen") }
-            composable(Screen.Chat.route) { Text("Chat Screen") }
+            composable(Screen.Chat.route) { ChatScreen() }
             composable(Screen.Listen.route) { Text("Listen Screen") }
             composable(Screen.Setting.route) { Text("Setting Screen") }
         }
